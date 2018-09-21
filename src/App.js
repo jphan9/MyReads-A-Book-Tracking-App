@@ -6,7 +6,7 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-      books: []
+      books: [],
   }
 
   componentDidMount() {
@@ -15,10 +15,15 @@ class BooksApp extends React.Component {
     })
   }
 
+  changeShelf = (book,shelf) => {
+    BooksAPI.update(book,shelf);
+    this.componentDidMount();
+  }
+
   render() {
     return (
       <div className="app">
-        <MainPage books={this.state.books} />
+        <MainPage books={this.state.books} changeShelf={this.changeShelf} />
       </div>
     )
   }
