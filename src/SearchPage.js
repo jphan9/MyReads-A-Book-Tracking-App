@@ -11,7 +11,7 @@ class SearchPage extends Component {
 
   // Updates the booksSearched array when there is a query.
   updateQuery = (query) => {
-    this.setState({query: query})
+    this.setState({query: query});
     this.updateBooks(query);
   }
 
@@ -23,7 +23,7 @@ class SearchPage extends Component {
         if(booksSearched.error) {
           this.setState({booksSearched: []});
         } else {
-          this.setState({booksSearched: booksSearched})
+          this.setState({booksSearched: booksSearched});
         }
       })
     } else {
@@ -36,7 +36,7 @@ class SearchPage extends Component {
     this.setState({
       query: '',
       booksSearched: []
-    })
+    });
   }
 
   render () {
