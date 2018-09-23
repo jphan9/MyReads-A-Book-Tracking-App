@@ -3,10 +3,18 @@ import ChangeShelf from './ChangeShelf';
 
 class Book extends Component {
   render() {
+    let thumbnail;
+    // If there is no thumnail show nothing else show the thumbnail image.
+    if(this.props.book.imageLinks === undefined) {
+      thumbnail = '';
+    } else {
+      thumbnail = this.props.book.imageLinks.thumbnail;
+    }
+
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${thumbnail}")` }}></div>
           <ChangeShelf book={this.props.book} changeShelf={this.props.changeShelf} shelf={this.props.shelf}/>
         </div>
         <div className="book-title">{this.props.book.title}</div>
